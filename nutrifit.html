@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NutriFit — Controle seus macros</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="nutrifit.css">
+
+
+</head>
+<body>
+
+<header>
+  <div class="brand"><span class="dot"></span> NutriFit</div>
+</header>
+
+<main style="padding-top:0; display:block;">
+  <div class="hero" style="max-width:1180px; margin:0 auto; padding-left:0; padding-right:0;">
+    <div>
+      <h1>Seu prato, em números.</h1>
+      <p>Registre o que você come ao longo do dia e acompanhe proteínas, carboidratos, gorduras, fibras e os principais micronutrientes — pensado para quem treina e leva a alimentação a sério.</p>
+      <div class="hero-note">⚠️ Valores de referência aproximados. Não substitui orientação de nutricionista.</div>
+    </div>
+    <div class="plate-wrap">
+      <div class="plate">
+        <svg viewBox="0 0 200 200">
+          <circle cx="100" cy="100" r="82" fill="none" stroke="#E4EEDF" stroke-width="18"/>
+          <circle id="ringProtein" cx="100" cy="100" r="82" fill="none" stroke="var(--protein)" stroke-width="18" stroke-linecap="round" stroke-dasharray="0 515" />
+          <circle id="ringCarb" cx="100" cy="100" r="82" fill="none" stroke="var(--carb)" stroke-width="18" stroke-linecap="round" stroke-dasharray="0 515" />
+          <circle id="ringFat" cx="100" cy="100" r="82" fill="none" stroke="var(--fat)" stroke-width="18" stroke-linecap="round" stroke-dasharray="0 515" />
+        </svg>
+        <div class="plate-center">
+          <div class="kcal mono" id="kcalTotal">0</div>
+          <div class="label">kcal hoje</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<main>
+
+  <!-- ADD FOOD -->
+  <section class="panel">
+    <h2>Adicionar alimento</h2>
+    <div class="sub">Escolha um alimento da lista e informe a quantidade em gramas.</div>
+    <div class="add-row">
+      <select id="foodSelect"></select>
+      <input type="number" id="gramsInput" placeholder="g" min="1" value="100">
+      <button class="btn-primary" id="addBtn">Adicionar</button>
+    </div>
+    <div class="food-preview" id="foodPreview"></div>
+  </section>
+
+  <!-- GOALS -->
+  <section class="panel">
+    <h2>Suas metas diárias</h2>
+    <div class="sub">Ajuste conforme seu objetivo (bulking, cutting, manutenção...).</div>
+    <div class="goals-grid">
+      <div class="goal-field">
+        <label>Calorias (kcal)</label>
+        <input type="number" id="goalKcal" value="2400">
+      </div>
+      <div class="goal-field">
+        <label>Proteína (g)</label>
+        <input type="number" id="goalProtein" value="160">
+      </div>
+      <div class="goal-field">
+        <label>Carboidrato (g)</label>
+        <input type="number" id="goalCarb" value="260">
+      </div>
+      <div class="goal-field">
+        <label>Gordura (g)</label>
+        <input type="number" id="goalFat" value="70">
+      </div>
+    </div>
+    <div id="macroBars"></div>
+  </section>
+
+  <!-- LOG -->
+  <section class="panel full">
+    <h2>Registro do dia</h2>
+    <div class="sub">Tudo que você adicionar aparece aqui.</div>
+    <div class="log-list" id="logList">
+      <div class="empty-state">Nenhum alimento registrado ainda. Adicione o primeiro acima ⤴</div>
+    </div>
+    <div style="margin-top:14px; text-align:right;">
+      <button class="btn-ghost" id="resetBtn">Limpar dia</button>
+    </div>
+  </section>
+
+  <!-- MICROS -->
+  <section class="panel full">
+    <h2>Micronutrientes principais</h2>
+    <div class="sub">Comparado a valores de referência aproximados para um adulto ativo.</div>
+    <div class="micro-grid" id="microGrid"></div>
+    <div class="micro-note">Fibras, sódio, potássio, cálcio, ferro e vitamina C são exibidos como estimativa geral — necessidades individuais variam com idade, sexo, peso e intensidade de treino.</div>
+  </section>
+
+</main>
+
+<footer>Feito para acompanhar sua rotina de treino e alimentação — dados aproximados e uso educativo, procure um nutricionista.</footer>
+
+ <script src="nutrifit.js"></script>
+</body>
+</html>
