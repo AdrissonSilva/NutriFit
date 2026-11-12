@@ -34,7 +34,6 @@
   }
   .mono{font-family:'IBM Plex Mono', monospace;}
 
-  /* ---------- HEADER ---------- */
   header{
     padding:28px 24px 8px;
     max-width:1180px;
@@ -119,7 +118,6 @@
     letter-spacing:0.08em;
   }
 
-  /* ---------- LAYOUT ---------- */
   main{
     max-width:1180px;
     margin:0 auto;
@@ -154,7 +152,6 @@
 
   .full{grid-column:1/-1;}
 
-  /* ---------- ADD FOOD ---------- */
   .add-row{
     display:grid;
     grid-template-columns: 2fr 90px auto;
@@ -203,7 +200,6 @@
   }
   .food-preview .emoji{font-size:1.6rem;}
 
-  /* ---------- LOG TABLE ---------- */
   .log-list{
     display:flex;
     flex-direction:column;
@@ -240,7 +236,6 @@
     font-size:0.9rem;
   }
 
-  /* ---------- MACRO BARS ---------- */
   .macro-row{
     margin-bottom:16px;
   }
