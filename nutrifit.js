@@ -1,5 +1,4 @@
 const FOODS = [
-    /* ---------------- FOOD DATABASE (per 100g) ---------------- */
   {name:"Peito de frango grelhado", emoji:"🍗", kcal:165, protein:31, carb:0, fat:3.6, fiber:0, sodium:74, potassium:256, calcium:15, iron:1.0, vitC:0},
   {name:"Arroz branco cozido", emoji:"🍚", kcal:130, protein:2.7, carb:28, fat:0.3, fiber:0.4, sodium:1, potassium:35, calcium:10, iron:0.2, vitC:0},
   {name:"Batata doce cozida", emoji:"🍠", kcal:86, protein:1.6, carb:20, fat:0.1, fiber:3.0, sodium:55, potassium:337, calcium:30, iron:0.6, vitC:2.4},
@@ -22,7 +21,6 @@ const FOODS = [
   {name:"Carne bovina magra grelhada", emoji:"🥩", kcal:217, protein:26.4, carb:0, fat:11.8, fiber:0, sodium:66, potassium:318, calcium:12, iron:2.6, vitC:0},
 ];
 
-/* reference daily values (approx, for chart proportions) */
 const MICRO_REF = {
   fiber:{label:"Fibras", unit:"g", ref:30, color:"var(--fiber)"},
   sodium:{label:"Sódio", unit:"mg", ref:2300, color:"var(--protein)"},
@@ -32,10 +30,8 @@ const MICRO_REF = {
   vitC:{label:"Vitamina C", unit:"mg", ref:90, color:"#4C8C4A"},
 };
 
-/* ---------------- STATE ---------------- */
 let log = []; // {food, grams}
 
-/* ---------------- INIT ---------------- */
 const foodSelect = document.getElementById('foodSelect');
 FOODS.forEach((f, i) => {
   const opt = document.createElement('option');
@@ -74,7 +70,6 @@ document.getElementById('resetBtn').addEventListener('click', () => {
   document.getElementById(id).addEventListener('input', render);
 });
 
-/* ---------------- RENDER ---------------- */
 function computeTotals(){
   const t = {kcal:0, protein:0, carb:0, fat:0, fiber:0, sodium:0, potassium:0, calcium:0, iron:0, vitC:0};
   log.forEach(entry => {
@@ -152,7 +147,6 @@ function renderMacros(totals){
     `;
   }).join('');
 
-  // plate ring (protein/carb/fat share of total calorie contribution)
   const circumference = 2 * Math.PI * 82;
   const pCal = totals.protein*4, cCal = totals.carb*4, fCal = totals.fat*9;
   const totalCal = pCal + cCal + fCal;
